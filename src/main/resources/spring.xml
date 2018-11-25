@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="
+    http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+	<bean id="hello" class="cn.com.taiji.bean.helloword">
+	</bean>
+	<bean id="lifebean" class="cn.com.taiji.bean.lifebean" init-method="start" destroy-method="stop">
+	</bean>
+	<bean id="another" class="cn.com.taiji.bean.another">
+		<!--setter方式注入值-->
+		<property name="beanOne" ref="hello"/>
+		<!--用构造方法来注入值-->
+		<constructor-arg index="0" ref="hello"></constructor-arg>
+	</bean>
+  </beans>
